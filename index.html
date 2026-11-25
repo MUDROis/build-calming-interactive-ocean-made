@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tidal Stillness — an ocean of particles</title>
+  <meta name="description" content="A calming interactive ocean made of particles. Touch the water, shape the swell, choose the hour of light, and pause the tide whenever you need stillness.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#controls">Skip to controls</a>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="ocean" role="img"
+        aria-label="A calm ocean of thousands of drifting particles. Moving a pointer or finger across it sends out ripples."></canvas>
+      <div class="hero-copy">
+        <p class="eyebrow">A living body of water</p>
+        <h1 id="hero-title">Touch the surface. Let&nbsp;it&nbsp;answer.</h1>
+        <p class="lede">Thousands of drifting particles respond to every gesture with gentle ripples. Shape the swell, choose the hour of light, and pause the tide whenever you need stillness.</p>
+        <button id="begin" class="btn btn-primary" type="button">Begin the tide</button>
+      </div>
+      <p class="hint" aria-hidden="true">Drag anywhere on the water</p>
+    </section>
+
+    <section id="controls" class="controls" aria-label="Ocean controls">
+      <div class="control">
+        <label for="hour">Hour of light</label>
+        <div class="control-row">
+          <input type="range" id="hour" min="0" max="100" value="50" step="1"
+            aria-describedby="hour-value">
+          <output id="hour-value" for="hour">Dusk</output>
+        </div>
+        <p class="control-hint">Shift from dawn teal to midnight ink.</p>
+      </div>
+
+      <div class="control">
+        <label for="swell">Swell</label>
+        <div class="control-row">
+          <input type="range" id="swell" min="0" max="100" value="40" step="1"
+            aria-describedby="swell-value">
+          <output id="swell-value" for="swell">Gentle</output>
+        </div>
+        <p class="control-hint">Raise or soften the wave height.</p>
+      </div>
+
+      <div class="control control-pause">
+        <span class="control-label" id="pause-label">Tide</span>
+        <button id="pause" class="btn btn-quiet" type="button" aria-pressed="false" aria-labelledby="pause-label pause">Pause the tide</button>
+        <p class="control-hint">Hold the surface still.</p>
+      </div>
+
+      <p id="ocean-status" class="visually-hidden" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made of drifting particles — no two waves alike.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
